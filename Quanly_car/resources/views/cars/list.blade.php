@@ -19,7 +19,7 @@
 		@endif
 	
 	<h2>Danh sách xe</h2>
-	<button type="button" class="btn btn-warning" onclick="window.location='{{ route('cars.create') }}'">Thêm mới</button>
+	<button type="button" class="btn btn-info" onclick="window.location='{{ route('cars.create') }}'">Thêm mới</button>
     <!-- <button type="button" class="btn btn-warning" href="{{ route('cars.create') }}">Thêm mới</button> -->
 	
 	<table class="table table-hover">
@@ -27,6 +27,7 @@
 			<tr>
 				<th>Stt</th>
 				<th>Model</th>
+				<th>Manufacturers</th>
 				<th>Image</th>
 				<th>Description</th>
 				<th>Produced_on</th>				
@@ -42,6 +43,7 @@
 			<tr>
                 <td>{{ ++$stt }}</td>
                 <td>{{ $car->model }}</td>
+                <td>{{ $car->manufacturer->mf_name }}</td>
                 <td><img src="/images/{{ $car->image}}" style="width: 50px; height:50px;" onclick="window.location='/cars/{{ $car->id }}'" />   </td>
                 <td>{{ $car->description }}</td>
                 <td>{{ $car->produced_on }}</td>

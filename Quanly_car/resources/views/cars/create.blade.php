@@ -38,6 +38,24 @@
                 <input type="text" name="model" class="form-control" id="" placeholder="Input field"
                 >
             </div>
+             
+            <div class="form-group">Manufacturer
+            <select class="form-control " name="mf_name">
+                @foreach($manufacture as $ma)
+                    <option value='{{$ma->id}}'>{{$ma->mf_name}}</option>
+                @endforeach
+                </select>
+                <!-- <select class="form-control " name="mf_name">
+                    <option value="1">TOYOTA</option>
+                    <option value="2">MAZDA</option>
+                    <option value="3">BMW</option>
+                    <option value="4">HYUNDAI</option>
+                    <option value="5">LAMBORGHINI</option>
+                    <option value="6">HONDA</option>
+                    <option value="7">YAMAHA</option>
+                    <option value="8">MERCEDES</option>
+                </select> -->
+            </div>
             <div class="form-group">
                 <lable for="">Image</lable>
                 <input type="file" name="image" class="form-control" id="" placeholder="Input field" />

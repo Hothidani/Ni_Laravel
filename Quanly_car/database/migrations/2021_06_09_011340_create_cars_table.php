@@ -19,6 +19,8 @@ class CreateCarsTable extends Migration
             $table->string('image');
             $table->string('description');
             $table->date('produced_on');
+            $table->integer('mf_id');
+            $table->foreign('mf_id')->references('id')->on('manufacturers')->delete()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

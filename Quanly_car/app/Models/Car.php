@@ -10,4 +10,7 @@ class Car extends Model
     use HasFactory;
     protected $table= 'cars';
     protected $fillable = ['model','image','description','produced_on'];
+    public function manufacturer(){
+        return $this->belongsTo('App\Models\Manufacturer', 'mf_id', 'id');
+    }
 }

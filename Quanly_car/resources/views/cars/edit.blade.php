@@ -28,7 +28,6 @@
             </ul>
         </div>
         @endif
-
         <form action="{{ route('cars.update', $car['id']) }}" enctype="multipart/form-data" method="POST" role="form">
             @csrf
             @method('put')
@@ -38,10 +37,18 @@
                 <lable for="">Model</lable>
                 <input type="text" name="model" class="form-control" id="" placeholder="Input field"  value="{{isset($car->model)?$car->model:''}}">
             </div>
+            <div class="form-group">Manufacturer
+            <select class="form-control " name="mf_name">           
+                @foreach($manufacture as $ma)
+                    <option value='{{$ma->id}} ' {{$ma->id == $car->mf_id?'selected':''}}  >{{$ma->mf_name}}</option>
+                @endforeach
+                </select>
+                
+            </div>
             <div class="form-group">
                 <lable for="">Image</lable>
                 <input type="file" name="image" class="form-control" id="" placeholder="Input field" value="{{isset($car->image)?$car->image:''}}">
-                <img src="/images/{{ $car->image}}" style="width: 50px; height:50px;"/>   
+                <img src="/images/{{ $car->image}}"style="width: 200px; "/>   
             
             </div>
             <div class="form-group">
@@ -51,7 +58,7 @@
             </div>
             <div class="form-group">
                 <lable for="">Produce_on</lable>
-                <input type="date" name="produced_on" class="form-control" id="" placeholder="Input field" value="{{isset($car->produced_on)?$car->produced_on:''}}">
+                <input type="" name="produced_on" class="form-control" id="" placeholder="Input field" value="{{isset($car->produced_on)?$car->produced_on:''}}">
                 
             </div>
             
